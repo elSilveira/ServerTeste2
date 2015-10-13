@@ -26,13 +26,7 @@ namespace ServerTeste2.Controllers
         {
             return new string[] { "value1", "value2" };
         }
-
-        public struct UsuarioCliente
-        {
-            public Cliente cliente { get; set; }
-            public string password;
-        }
-
+        
         [Route("api/addclient")]
         [HttpPost]
         public HttpResponseMessage CadastroCliente(Cliente cliente, string password)
