@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using ServerTeste2.Models;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace ServerTeste2.Controllers
 {
@@ -18,7 +19,6 @@ namespace ServerTeste2.Controllers
 
     public class ClienteController : ApiController
     {
-        private DBContext db = new DBContext();
         
         // GET: api/values
         [HttpGet]
@@ -35,17 +35,25 @@ namespace ServerTeste2.Controllers
             {
                 //System.Web.Script.Serialization.JavaScriptSerializer js = new System.Web.Script.Serialization.JavaScriptSerializer();
                 //var data = js.Deserialize<Cliente>(dataCliente);
-                //db.Database.CreateIfNotExists();
-                ////var c = data.cliente;
-                ////db.Cliente.Add(c);
-                //db.SaveChanges();
-
-                dynamic json = model;
-
-                var cliente = json.cliente.ToObject<Cliente>();
-                var senha = json.password.ToString();
-
-                return Request.CreateResponse(HttpStatusCode.OK);
+                var cliente = new Cliente();
+                var usuario = new Usuario();
+                using (DBContext db = new DBContext())
+                {
+                    db.Database.CreateIfNotExists();
+                    dynamic json = model;
+                    cliente = json.Cliente.ToObject<Cliente>();
+                    db.Cliente.Add(cliente);
+                    db.SaveChanges();
+                    
+                    usuario.cliente = cliente;
+                    usuario.idCliente = cliente.idCliente;
+                    usuario.roleUsuario = "user";
+                    usuario.senhaUsuario = json.Password.ToString();
+                    db.Usuario.Add(usuario);
+                    db.SaveChanges();
+                }
+                
+                return Request.CreateResponse(HttpStatusCode.OK, new { usuario.idUsuario, usuario.roleUsuario});
             }
             catch (Exception ex)
             {

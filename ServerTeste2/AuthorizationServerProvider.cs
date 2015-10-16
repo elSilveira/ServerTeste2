@@ -19,18 +19,24 @@ namespace ServerTeste2
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
 
-            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });   
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
             try
             {
+                var usuario = new Usuario();
+
+                    using (DBContext db = new DBContext())
+                    {
+                        usuario = (from u in db.Usuario
+                                      where u.idUsuario == Convert.ToInt32(context.ClientId)
+                                      select u) as Usuario;
+                    }
                 
-                var identity = new ClaimsIdentity(context.Options.AuthenticationType);
-                
-                    identity.AddClaim(new Claim("sub", "elSilveira"));
-                    identity.AddClaim(new Claim("role", "user"));
+                    var identity = new ClaimsIdentity(context.Options.AuthenticationType);
+
+                    identity.AddClaim(new Claim("sub", usuario.idUsuario.ToString()));
+                    identity.AddClaim(new Claim("role", usuario.roleUsuario));
 
                     context.Validated(identity);
-                //}
-                context.Validated(identity);
             }
             catch (Exception err)
             {

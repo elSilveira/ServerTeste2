@@ -23,7 +23,5 @@ namespace ServerTeste2.Models
 
         [MaxLength(200)]
         public string roleUsuario { get; set; }
-        
-        public string tokenUsuario { get; set; }
     }
 }

@@ -97,6 +97,14 @@
       <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Interface, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.Interface.1.0.3\lib\net451\Newtonsoft.Json.Interface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
@@ -129,9 +137,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -161,6 +166,10 @@
     <Compile Include="Migrations\201509280245393_geo.cs" />
     <Compile Include="Migrations\201509280245393_geo.Designer.cs">
       <DependentUpon>201509280245393_geo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510161406488_removeTokenUsuario.cs" />
+    <Compile Include="Migrations\201510161406488_removeTokenUsuario.Designer.cs">
+      <DependentUpon>201510161406488_removeTokenUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Security\Krypto.cs" />
@@ -214,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201509280245393_geo.resx">
       <DependentUpon>201509280245393_geo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510161406488_removeTokenUsuario.resx">
+      <DependentUpon>201510161406488_removeTokenUsuario.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
