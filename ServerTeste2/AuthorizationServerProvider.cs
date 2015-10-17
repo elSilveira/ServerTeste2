@@ -24,21 +24,28 @@ namespace ServerTeste2
             {
                 var usuario = new Usuario();
 
-                    using (DBContext db = new DBContext())
+                using (DBContext db = new DBContext())
+                {
+                    var query = from u in db.Usuario
+                                join c in db.Cliente on context.UserName equals c.emailCliente
+                                where u.senhaUsuario == context.Password
+                                select u;
+                    foreach (Usuario u in query)
                     {
-                        usuario = (from u in db.Usuario
-                                      where u.idUsuario == Convert.ToInt32(context.ClientId)
-                                      select u) as Usuario;
+                        usuario = u;
                     }
-                
+                }
+                if (usuario.idUsuario > 0)
+                {
                     var identity = new ClaimsIdentity(context.Options.AuthenticationType);
 
-                    identity.AddClaim(new Claim("sub", usuario.idUsuario.ToString()));
+                    identity.AddClaim(new Claim("sub", context.UserName));
                     identity.AddClaim(new Claim("role", usuario.roleUsuario));
 
                     context.Validated(identity);
+                }
             }
-            catch (Exception err)
+            catch (Exception)
             {
                 context.SetError("invalid_grant", "The user name or password is incorrect.");
                 return;
