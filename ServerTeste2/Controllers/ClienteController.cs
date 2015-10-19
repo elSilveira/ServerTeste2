@@ -7,6 +7,7 @@ using System.Web.Http;
 using ServerTeste2.Models;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using SimpleCrypto;
 
 namespace ServerTeste2.Controllers
 {
@@ -19,9 +20,11 @@ namespace ServerTeste2.Controllers
 
     public class ClienteController : ApiController
     {
-        
+
         // GET: api/values
+        [Route("api/values")]
         [HttpGet]
+        [Authorize]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
@@ -52,8 +55,10 @@ namespace ServerTeste2.Controllers
                     db.Usuario.Add(usuario);
                     db.SaveChanges();
                 }
-                
-                return Request.CreateResponse(HttpStatusCode.OK, new { usuario.idUsuario, usuario.roleUsuario});
+
+                var passRetorno = Simple.Encrypt(usuario.senhaUsuario);
+
+                return Request.CreateResponse(HttpStatusCode.OK, new { usuario.idUsuario, usuario.roleUsuario, passRetorno });
             }
             catch (Exception ex)
             {

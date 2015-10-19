@@ -21,5 +21,7 @@ namespace ServerTeste2.Models
         public int idCategoria { get; set; }
         [ForeignKey("idCategoria")]
         public virtual Categoria categoria { get; set; }
+
+
     }
 }

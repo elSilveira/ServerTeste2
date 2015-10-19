@@ -16,5 +16,7 @@ namespace ServerTeste2.Models
         [Required(ErrorMessage ="O Nome da categoria não pode ser em branco")]
         [MaxLength(150)]
         public string nomeCategoria { get; set; }
+
+         
     }
 }

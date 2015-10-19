@@ -31,7 +31,7 @@ namespace ServerTeste2
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.Zero,
+                AccessTokenExpireTimeSpan = TimeSpan.FromHours(3),
                 Provider = new AuthorizationServerProvider()
             };
 

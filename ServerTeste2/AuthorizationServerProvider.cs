@@ -22,19 +22,9 @@ namespace ServerTeste2
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
             try
             {
-                var usuario = new Usuario();
 
-                using (DBContext db = new DBContext())
-                {
-                    var query = from u in db.Usuario
-                                join c in db.Cliente on context.UserName equals c.emailCliente
-                                where u.senhaUsuario == context.Password
-                                select u;
-                    foreach (Usuario u in query)
-                    {
-                        usuario = u;
-                    }
-                }
+                var usuario = Simple.VerificarUsuario(context.Password, Convert.ToInt32(context.UserName));
+
                 if (usuario.idUsuario > 0)
                 {
                     var identity = new ClaimsIdentity(context.Options.AuthenticationType);

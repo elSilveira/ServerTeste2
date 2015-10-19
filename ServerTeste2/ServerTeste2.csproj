@@ -109,6 +109,10 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SimpleCrypto, Version=26.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleCrypto.0.3.30.26\lib\SimpleCrypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Web.Cors, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -171,8 +175,13 @@
     <Compile Include="Migrations\201510161406488_removeTokenUsuario.Designer.cs">
       <DependentUpon>201510161406488_removeTokenUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510191557430_usuarioservico.cs" />
+    <Compile Include="Migrations\201510191557430_usuarioservico.Designer.cs">
+      <DependentUpon>201510191557430_usuarioservico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Simple.cs" />
     <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Security\Krypto.cs" />
+    <Compile Include="Models\UsuarioServico.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,6 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Security\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201509161325546_atualizacaoagenda.resx">
@@ -226,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510161406488_removeTokenUsuario.resx">
       <DependentUpon>201510161406488_removeTokenUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510191557430_usuarioservico.resx">
+      <DependentUpon>201510191557430_usuarioservico.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
