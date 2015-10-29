@@ -17,6 +17,9 @@ namespace ServerTeste2.Models
         [MaxLength(150)]
         public string nomeCategoria { get; set; }
 
-         
+        public string iconeCategoria { get; set; }
+
+        public string infoCategoria { get; set; }
+
     }
 }

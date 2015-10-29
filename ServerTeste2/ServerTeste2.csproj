@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201510191557430_usuarioservico.Designer.cs">
       <DependentUpon>201510191557430_usuarioservico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510261235314_iconeeinfocategoria.cs" />
+    <Compile Include="Migrations\201510261235314_iconeeinfocategoria.Designer.cs">
+      <DependentUpon>201510261235314_iconeeinfocategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Simple.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\UsuarioServico.cs" />
@@ -239,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510191557430_usuarioservico.resx">
       <DependentUpon>201510191557430_usuarioservico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510261235314_iconeeinfocategoria.resx">
+      <DependentUpon>201510261235314_iconeeinfocategoria.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

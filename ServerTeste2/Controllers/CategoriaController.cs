@@ -19,7 +19,18 @@ namespace ServerTeste2.Controllers
         {
             try
             {
-                return Request.CreateResponse(HttpStatusCode.OK);
+                List<Categoria> categorias = new List<Categoria>();
+                using(DBContext db = new DBContext())
+                {
+                    db.Database.CreateIfNotExists();
+                    var query = from c in db.Categoria select c;
+                                
+                    foreach (Categoria cat in query)
+                    {
+                        categorias.Add(cat);
+                    }
+                }
+                return Request.CreateResponse(HttpStatusCode.OK, categorias);
             }
             catch (Exception ex)
             {
