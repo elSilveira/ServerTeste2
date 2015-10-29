@@ -183,6 +183,7 @@
     <Compile Include="Migrations\201510261235314_iconeeinfocategoria.Designer.cs">
       <DependentUpon>201510261235314_iconeeinfocategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ImageMedia.cs" />
     <Compile Include="Models\Simple.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\UsuarioServico.cs" />

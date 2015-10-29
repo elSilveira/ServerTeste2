@@ -41,5 +41,7 @@ namespace ServerTeste2.Models
 
         [Required(ErrorMessage = "O Numero não pode ser em branco")]
         public int numeroEmpresa { get; set; }
+
+        public string imagemEmpresa { get; set; }
     }
 }
