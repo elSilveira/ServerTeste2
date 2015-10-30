@@ -152,6 +152,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\padrao.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -182,6 +183,10 @@
     <Compile Include="Migrations\201510261235314_iconeeinfocategoria.cs" />
     <Compile Include="Migrations\201510261235314_iconeeinfocategoria.Designer.cs">
       <DependentUpon>201510261235314_iconeeinfocategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510301536212_addtiposervico.cs" />
+    <Compile Include="Migrations\201510301536212_addtiposervico.Designer.cs">
+      <DependentUpon>201510301536212_addtiposervico.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ImageMedia.cs" />
     <Compile Include="Models\Simple.cs" />
@@ -247,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510261235314_iconeeinfocategoria.resx">
       <DependentUpon>201510261235314_iconeeinfocategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510301536212_addtiposervico.resx">
+      <DependentUpon>201510301536212_addtiposervico.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

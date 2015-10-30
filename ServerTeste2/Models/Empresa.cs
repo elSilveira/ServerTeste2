@@ -43,5 +43,8 @@ namespace ServerTeste2.Models
         public int numeroEmpresa { get; set; }
 
         public string imagemEmpresa { get; set; }
+
+        [NotMapped]
+        public string tipoServico { get; set; }
     }
 }

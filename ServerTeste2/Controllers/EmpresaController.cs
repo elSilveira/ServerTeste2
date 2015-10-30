@@ -10,10 +10,10 @@ using System.Data.Common;
 
 namespace ServerTeste2.Controllers
 {
-    
+
     public class EmpresaController : ApiController
     {
-        
+
         [Route("empresas/listEmpresas")]
         [HttpPost]
         public HttpResponseMessage ListarCategorias([FromBody]JObject model)
@@ -28,17 +28,33 @@ namespace ServerTeste2.Controllers
                     var query = db.Empresa.SqlQuery("select e.* from Empresas e " +
                         " where e.idEmpresa in ( " +
                         "     select es.idEmpresa from EmpresaServicos es where " +
-                        "     es.idServico in (select s.idServico from Servicos s where idCategoria = "+json.idCategoria+")) " +
+                        "     es.idServico in (select s.idServico from Servicos s where idCategoria = " + json.idCategoria + ")) " +
                         "     and e.cidadeEmpresa = (Select cli.cidadeCliente from Clientes cli " +
                         "         where cli.idCliente = (select u.idCliente from Usuarios u where idUsuario = " + json.idUsuario + ")) " +
                         "     and e.estadoEmpresa = (Select cli.estadoCliente from Clientes cli " +
                         "         where cli.idCliente = (select u.idCliente from Usuarios u where idUsuario = " + json.idUsuario + ")) " +
                         "     order by e.bairroEmpresa ");
-
                     foreach (Empresa e in query)
                     {
                         empresas.Add(e);
                     }
+                    foreach (Empresa e in empresas)
+                    {
+                        db.SaveChanges();
+                        var query2 = (from s in db.Servico 
+                                     join es in db.EmpresaServicos on e.idEmpresa equals es.idEmpresa
+                                     where s.idServico == es.idServico
+                                     select s.tipoServico).Distinct();
+                        string tipoServico = "";
+                        foreach(string tipo in query2)
+                        {
+                            tipoServico += tipo + " ";
+                        }
+                        e.tipoServico = tipoServico;    
+                       
+                    }
+
+
                 }
                 return Request.CreateResponse(HttpStatusCode.OK, empresas);
             }
