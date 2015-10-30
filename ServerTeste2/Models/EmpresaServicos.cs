@@ -14,16 +14,13 @@ namespace ServerTeste2.Models
         public int idEmpresaServico { get; set; }
 
         public int idEmpresa { get; set; }
-        [ForeignKey("idEmpresa")]
         public virtual Empresa empresa { get; set; }
 
         public int idServico { get; set; }
-        [ForeignKey("idServico")]
         public virtual Servico servico { get; set; }
 
         public int tempoServico { get; set; }
 
         public double valorServico { get; set;}
-        
     }
 }

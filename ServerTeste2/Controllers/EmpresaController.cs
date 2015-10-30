@@ -14,8 +14,45 @@ namespace ServerTeste2.Controllers
     public class EmpresaController : ApiController
     {
 
+        [Route("empresas/listServicos")]
+        [HttpPost]
+        [Authorize]
+        public HttpResponseMessage ListarServicosEmpresa([FromBody]JObject model)
+        {
+            try
+            {
+                List<EmpresaServicos> servicos = new List<EmpresaServicos>();
+                dynamic json = model;
+                int id = 0;
+                DBContext db = new DBContext();
+                
+                    id = json.idEmpresa;
+                var query = from es in db.EmpresaServicos
+                             join s in db.Servico on es.idServico equals s.idServico
+                             join e in db.Empresa on es.idEmpresa equals e.idEmpresa
+                             orderby s.idCategoria, s.nomeServico
+                             where es.idEmpresa == id
+
+                             select es;
+
+                    foreach (EmpresaServicos es in query)
+                    {
+                        servicos.Add(es);
+                    }
+                    
+                    return Request.CreateResponse(HttpStatusCode.OK, servicos);
+                
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+
+        }
+
         [Route("empresas/listEmpresas")]
         [HttpPost]
+        [Authorize]
         public HttpResponseMessage ListarCategorias([FromBody]JObject model)
         {
             try
@@ -41,17 +78,17 @@ namespace ServerTeste2.Controllers
                     foreach (Empresa e in empresas)
                     {
                         db.SaveChanges();
-                        var query2 = (from s in db.Servico 
-                                     join es in db.EmpresaServicos on e.idEmpresa equals es.idEmpresa
-                                     where s.idServico == es.idServico
-                                     select s.tipoServico).Distinct();
+                        var query2 = (from s in db.Servico
+                                      join es in db.EmpresaServicos on e.idEmpresa equals es.idEmpresa
+                                      where s.idServico == es.idServico
+                                      select s.tipoServico).Distinct();
                         string tipoServico = "";
-                        foreach(string tipo in query2)
+                        foreach (string tipo in query2)
                         {
                             tipoServico += tipo + " ";
                         }
-                        e.tipoServico = tipoServico;    
-                       
+                        e.tipoServico = tipoServico;
+
                     }
 
 

@@ -15,11 +15,9 @@ namespace ServerTeste2.Models
         public int idEmpresaCliente { get; set; }
 
         public int idEmpresa { get; set; }
-        [ForeignKey("idEmpresa")]
         public virtual Empresa empresa { get; set; }
 
         public int idCliente { get; set; }
-        [ForeignKey("idCliente")]
         public virtual Cliente cliente { get; set; }
 
         [Display(Name = "0-Cliente 1-funcionario 2-gerente 3-administrador", Description = "Tipo de cliente.")]

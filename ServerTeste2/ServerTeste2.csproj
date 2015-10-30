@@ -188,6 +188,22 @@
     <Compile Include="Migrations\201510301536212_addtiposervico.Designer.cs">
       <DependentUpon>201510301536212_addtiposervico.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510301901507_infoempresa.cs" />
+    <Compile Include="Migrations\201510301901507_infoempresa.Designer.cs">
+      <DependentUpon>201510301901507_infoempresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510301904546_maxlengthinfoempresa.cs" />
+    <Compile Include="Migrations\201510301904546_maxlengthinfoempresa.Designer.cs">
+      <DependentUpon>201510301904546_maxlengthinfoempresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510302151000_atualizacaoforeignkey.cs" />
+    <Compile Include="Migrations\201510302151000_atualizacaoforeignkey.Designer.cs">
+      <DependentUpon>201510302151000_atualizacaoforeignkey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510302227232_estable.cs" />
+    <Compile Include="Migrations\201510302227232_estable.Designer.cs">
+      <DependentUpon>201510302227232_estable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ImageMedia.cs" />
     <Compile Include="Models\Simple.cs" />
     <Compile Include="Models\Usuario.cs" />
@@ -255,6 +271,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510301536212_addtiposervico.resx">
       <DependentUpon>201510301536212_addtiposervico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510301901507_infoempresa.resx">
+      <DependentUpon>201510301901507_infoempresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510301904546_maxlengthinfoempresa.resx">
+      <DependentUpon>201510301904546_maxlengthinfoempresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510302151000_atualizacaoforeignkey.resx">
+      <DependentUpon>201510302151000_atualizacaoforeignkey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510302227232_estable.resx">
+      <DependentUpon>201510302227232_estable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

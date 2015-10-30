@@ -44,6 +44,9 @@ namespace ServerTeste2.Models
 
         public string imagemEmpresa { get; set; }
 
+        [MaxLength(200)]
+        public string infoEmpresa { get; set; }
+
         [NotMapped]
         public string tipoServico { get; set; }
     }

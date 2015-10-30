@@ -15,11 +15,9 @@ namespace ServerTeste2.Models
         public int idUsuarioServico { get; set; }
 
         public int idCategoria { get; set; }
-        [ForeignKey("idCategoria")]
         public virtual Categoria categoria { get; set; }
 
         public int idUsuario { get; set; }
-        [ForeignKey("idServico")]
         public virtual Usuario usuario{ get; set; }
 
         public int idServico { get; set; }
