@@ -16,8 +16,10 @@ namespace ServerTeste2.Models
         public virtual DbSet<Categoria> Categoria { get; set; }
         public virtual DbSet<Servico> Servico { get; set; }
         public virtual DbSet<Agenda> Agenda { get; set; }
-        public virtual DbSet<EmpresaServicos> EmpresaServicos { get; set; }
+        public virtual DbSet<EmpresaServico> EmpresaServico { get; set; }
         public virtual DbSet<EmpresaCliente> EmpresaCliente { get; set; }
+        public virtual DbSet<ClienteServico> ClienteServico { get; set; }
+        public virtual DbSet<EmpresaClienteServico> EmpresaClienteServico { get; set; }
 
         public DBContext()
         {

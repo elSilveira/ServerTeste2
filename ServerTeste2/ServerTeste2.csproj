@@ -204,10 +204,43 @@
     <Compile Include="Migrations\201510302227232_estable.Designer.cs">
       <DependentUpon>201510302227232_estable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511031433399_infohorarioinfocliente.cs" />
+    <Compile Include="Migrations\201511031433399_infohorarioinfocliente.Designer.cs">
+      <DependentUpon>201511031433399_infohorarioinfocliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511031625090_servtoempx.cs" />
+    <Compile Include="Migrations\201511031625090_servtoempx.Designer.cs">
+      <DependentUpon>201511031625090_servtoempx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511031654225_upempc.cs" />
+    <Compile Include="Migrations\201511031654225_upempc.Designer.cs">
+      <DependentUpon>201511031654225_upempc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511031833261_clienteservico.cs" />
+    <Compile Include="Migrations\201511031833261_clienteservico.Designer.cs">
+      <DependentUpon>201511031833261_clienteservico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511031843128_corrcliser.cs" />
+    <Compile Include="Migrations\201511031843128_corrcliser.Designer.cs">
+      <DependentUpon>201511031843128_corrcliser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511031855267_atualizacaoservicoempresa.cs" />
+    <Compile Include="Migrations\201511031855267_atualizacaoservicoempresa.Designer.cs">
+      <DependentUpon>201511031855267_atualizacaoservicoempresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511031948321_empcliser.cs" />
+    <Compile Include="Migrations\201511031948321_empcliser.Designer.cs">
+      <DependentUpon>201511031948321_empcliser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511041409092_especializacao.cs" />
+    <Compile Include="Migrations\201511041409092_especializacao.Designer.cs">
+      <DependentUpon>201511041409092_especializacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClienteServico.cs" />
+    <Compile Include="Models\EmpresaClienteServico.cs" />
     <Compile Include="Models\ImageMedia.cs" />
     <Compile Include="Models\Simple.cs" />
     <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Models\UsuarioServico.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -226,7 +259,7 @@
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\Empresa.cs" />
     <Compile Include="Models\EmpresaCliente.cs" />
-    <Compile Include="Models\EmpresaServicos.cs" />
+    <Compile Include="Models\EmpresaServico.cs" />
     <Compile Include="Models\Servico.cs" />
     <Compile Include="Models\Token.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -283,6 +316,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510302227232_estable.resx">
       <DependentUpon>201510302227232_estable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511031433399_infohorarioinfocliente.resx">
+      <DependentUpon>201511031433399_infohorarioinfocliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511031625090_servtoempx.resx">
+      <DependentUpon>201511031625090_servtoempx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511031654225_upempc.resx">
+      <DependentUpon>201511031654225_upempc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511031833261_clienteservico.resx">
+      <DependentUpon>201511031833261_clienteservico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511031843128_corrcliser.resx">
+      <DependentUpon>201511031843128_corrcliser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511031855267_atualizacaoservicoempresa.resx">
+      <DependentUpon>201511031855267_atualizacaoservicoempresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511031948321_empcliser.resx">
+      <DependentUpon>201511031948321_empcliser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511041409092_especializacao.resx">
+      <DependentUpon>201511041409092_especializacao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

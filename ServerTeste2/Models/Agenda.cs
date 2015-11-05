@@ -27,5 +27,9 @@ namespace ServerTeste2.Models
         public int idFuncionario { get; set; }
         [ForeignKey("idCliente")]
         public virtual Cliente funcionario { get; set; }
+
+        //Horário 0 = Inalterado, 1 = Disponível, 2 = Indisponível
+        public int infoHorario { get; set; }
+        
     }
 }

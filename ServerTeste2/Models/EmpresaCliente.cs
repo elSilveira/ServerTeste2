@@ -22,6 +22,12 @@ namespace ServerTeste2.Models
 
         [Display(Name = "0-Cliente 1-funcionario 2-gerente 3-administrador", Description = "Tipo de cliente.")]
         public int tipoCliente { get; set; } // 0-Cliente 1-funcionario 2-gerente 3-administrador
-        
+
+        public string especializacaoCliente { get; set; }
+
+        public string especializacao2Cliente { get; set; }
+
+        public string especializacao3Cliente { get; set; }
+
     }
 }

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ServerTeste2.Models
 {
-    [Table("EmpresaServicos")]
-    public class EmpresaServicos
+    [Table("EmpresaServico")]
+    public class EmpresaServico
     {
         [Key]
         public int idEmpresaServico { get; set; }

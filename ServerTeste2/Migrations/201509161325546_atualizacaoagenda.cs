@@ -77,7 +77,7 @@ namespace ServerTeste2.Migrations
                 .Index(t => t.idCliente);
             
             CreateTable(
-                "dbo.EmpresaServicos",
+                "dbo.EmpresaServico",
                 c => new
                     {
                         idEmpresaServico = c.Int(nullable: false, identity: true),
@@ -108,23 +108,23 @@ namespace ServerTeste2.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.EmpresaServicos", "idServico", "dbo.Servicos");
+            DropForeignKey("dbo.EmpresaServico", "idServico", "dbo.Servicos");
             DropForeignKey("dbo.Servicos", "idCategoria", "dbo.Categorias");
-            DropForeignKey("dbo.EmpresaServicos", "idEmpresa", "dbo.Empresas");
+            DropForeignKey("dbo.EmpresaServico", "idEmpresa", "dbo.Empresas");
             DropForeignKey("dbo.EmpresaCliente", "idEmpresa", "dbo.Empresas");
             DropForeignKey("dbo.EmpresaCliente", "idCliente", "dbo.Clientes");
             DropForeignKey("dbo.Agenda", "idEmpresa", "dbo.Empresas");
             DropForeignKey("dbo.Agenda", "idCliente", "dbo.Clientes");
             DropIndex("dbo.Servicos", new[] { "idCategoria" });
-            DropIndex("dbo.EmpresaServicos", new[] { "idServico" });
-            DropIndex("dbo.EmpresaServicos", new[] { "idEmpresa" });
+            DropIndex("dbo.EmpresaServico", new[] { "idServico" });
+            DropIndex("dbo.EmpresaServico", new[] { "idEmpresa" });
             DropIndex("dbo.EmpresaCliente", new[] { "idCliente" });
             DropIndex("dbo.EmpresaCliente", new[] { "idEmpresa" });
             DropIndex("dbo.Clientes", new[] { "emailCliente" });
             DropIndex("dbo.Agenda", new[] { "idCliente" });
             DropIndex("dbo.Agenda", new[] { "idEmpresa" });
             DropTable("dbo.Servicos");
-            DropTable("dbo.EmpresaServicos");
+            DropTable("dbo.EmpresaServico");
             DropTable("dbo.EmpresaCliente");
             DropTable("dbo.Categorias");
             DropTable("dbo.Empresas");
