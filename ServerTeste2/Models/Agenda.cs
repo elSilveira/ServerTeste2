@@ -15,18 +15,12 @@ namespace ServerTeste2.Models
         public int idAgenda { get; set; }
 
         public DateTime horarioAgenda { get; set; }
-
-        public int idEmpresa { get; set; }
-        [ForeignKey("idEmpresa")]
-        public virtual Empresa empresa { get; set; }
-
+        
         public int idCliente { get; set; }
-        [ForeignKey("idCliente")]
         public virtual Cliente cliente { get; set; }
 
-        public int idFuncionario { get; set; }
-        [ForeignKey("idCliente")]
-        public virtual Cliente funcionario { get; set; }
+        public int idEmpresaCliente { get; set; }
+        public virtual EmpresaCliente empresaCliente { get; set; }
 
         //Horário 0 = Inalterado, 1 = Disponível, 2 = Indisponível
         public int infoHorario { get; set; }

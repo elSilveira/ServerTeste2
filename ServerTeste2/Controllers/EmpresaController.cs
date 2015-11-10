@@ -15,14 +15,26 @@ namespace ServerTeste2.Controllers
 
     public class EmpresaController : ApiController
     {
-        public struct profissional
+        public struct Profissional
         {
             public string nomeCliente;
-            public int idEmpresaCliente;
-            public int idEmpresaServico;
+            public string sobrenomeCliente;
             public string especializacaoCliente;
+            public string especializacao2Cliente;
+            public string especializacao3Cliente;
+            public int idEmpresaCliente;
+
+            public Profissional(string x, string y, string z, string e, string s, int p)
+            {
+                this.nomeCliente = x;
+                this.sobrenomeCliente = y;
+                this.especializacaoCliente = z;
+                this.especializacao2Cliente = e;
+                this.especializacao3Cliente = s;
+                this.idEmpresaCliente = p;
+            }
         }
-        
+
 
         [Route("empresas/listFuncionarios")]
         [HttpPost]
@@ -32,32 +44,47 @@ namespace ServerTeste2.Controllers
 
             try
             {
-                dynamic json = model["ListServicosSelecionados"];
-                //List<int> idList = json.Object.ToList<>();
-                List<profissional> listProfissional = new List<profissional>();
+                dynamic json = model["servicos"];
+                //List<EmpresaServico> listaServicos = json;
+                List<Profissional> listProfissional = new List<Profissional>();
                 //List<int> listaId = json.ListServicosSelecionados;
-                var xixi = new JsonSerializer().Deserialize(new StringReader(json), typeof(List<Int32>)) as List<Int32>;
                 DBContext db = new DBContext();
-                foreach (int id in json.ListServicosSelecionados)
+                string empresas = json;
+                List<string> lista = empresas.Split(',').ToList();
+
+                foreach (string id in lista)
                 {
-                    var query = (from ecs in db.EmpresaClienteServico
-                                 join ec in db.EmpresaCliente on ecs.idEmpresaCliente equals ec.idEmpresaCliente
-                                 join c in db.Cliente on ec.idCliente equals c.idCliente
-                                 where ecs.idEmpresaServico == id
-                                 select new profissional
-                                 {
-                                     nomeCliente = c.nomeCliente + ' ' + c.sobrenomeCliente,
-                                     idEmpresaCliente = ec.idEmpresaCliente,
-                                     idEmpresaServico = ecs.idEmpresaServico,
-                                     especializacaoCliente = ec.especializacaoCliente +
-                                         (ec.especializacao2Cliente != "" ? " - " + ec.especializacao2Cliente : "") +
-                                         (ec.especializacao3Cliente != "" ? " - " + ec.especializacao3Cliente : "")
+                    var idEmpresa = Convert.ToInt32(id);
+                    var query = from ecs in db.EmpresaClienteServico
+                                join ec in db.EmpresaCliente on ecs.idEmpresaCliente equals ec.idEmpresaCliente
+                                join c in db.Cliente on ec.idCliente equals c.idCliente
+                                where ecs.idEmpresaServico == idEmpresa
+                                select new
+                                {
+                                    nomeCliente = c.nomeCliente,
+                                    sobrenomeCliente = c.sobrenomeCliente,
+                                    especializacaoCliente = ec.especializacaoCliente,
+                                    especializacao2Cliente = ec.especializacao2Cliente,
+                                    especializacao3Cliente = ec.especializacao3Cliente,
+                                    idEmpresaCliente = ec.idEmpresaCliente
 
-                                 }).ToList();
+                                };
+                    IEnumerable<Profissional> cart = from ca in query.AsEnumerable()
+                                                     select new Profissional(
+                                                         ca.nomeCliente,
+                                                         ca.sobrenomeCliente,
+                                                         ca.especializacaoCliente,
+                                                         ca.especializacao2Cliente,
+                                                         ca.especializacao3Cliente,
+                                                         ca.idEmpresaCliente
+                                                     );
 
-                    foreach (profissional x in query)
+                    foreach (Profissional x in cart)
                     {
-                        listProfissional.Add(x);
+                        var exist = false;
+                        foreach (Profissional p in listProfissional)
+                            if (x.nomeCliente == p.nomeCliente) exist = true;
+                        if(!exist) listProfissional.Add(x);
                     }
                 }
                 return Request.CreateResponse(HttpStatusCode.OK, listProfissional);

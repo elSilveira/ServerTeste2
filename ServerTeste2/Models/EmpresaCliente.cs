@@ -28,6 +28,6 @@ namespace ServerTeste2.Models
         public string especializacao2Cliente { get; set; }
 
         public string especializacao3Cliente { get; set; }
-
+        
     }
 }

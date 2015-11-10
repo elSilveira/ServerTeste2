@@ -236,6 +236,14 @@
     <Compile Include="Migrations\201511041409092_especializacao.Designer.cs">
       <DependentUpon>201511041409092_especializacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511081845533_cliserdate.cs" />
+    <Compile Include="Migrations\201511081845533_cliserdate.Designer.cs">
+      <DependentUpon>201511081845533_cliserdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511101456528_agenda.cs" />
+    <Compile Include="Migrations\201511101456528_agenda.Designer.cs">
+      <DependentUpon>201511101456528_agenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ClienteServico.cs" />
     <Compile Include="Models\EmpresaClienteServico.cs" />
     <Compile Include="Models\ImageMedia.cs" />
@@ -340,6 +348,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511041409092_especializacao.resx">
       <DependentUpon>201511041409092_especializacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511081845533_cliserdate.resx">
+      <DependentUpon>201511081845533_cliserdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511101456528_agenda.resx">
+      <DependentUpon>201511101456528_agenda.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

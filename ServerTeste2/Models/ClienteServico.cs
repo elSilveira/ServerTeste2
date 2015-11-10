@@ -27,8 +27,12 @@ namespace ServerTeste2.Models
         public int statusServico { get; set; }
 
         public double valorServico { get; set; }
-        
 
+        public DateTime dataServico { get; set; }
+
+        public DateTime dataAlternativa { get; set; }
+
+        public DateTime dataResposta { get; set; }
     }
 }
 
