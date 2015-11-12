@@ -159,6 +159,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="AuthorizationServerProvider.cs" />
+    <Compile Include="Controllers\AgendaController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
@@ -243,6 +244,18 @@
     <Compile Include="Migrations\201511101456528_agenda.cs" />
     <Compile Include="Migrations\201511101456528_agenda.Designer.cs">
       <DependentUpon>201511101456528_agenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511101504415_agenda2.cs" />
+    <Compile Include="Migrations\201511101504415_agenda2.Designer.cs">
+      <DependentUpon>201511101504415_agenda2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511112322306_cliser.cs" />
+    <Compile Include="Migrations\201511112322306_cliser.Designer.cs">
+      <DependentUpon>201511112322306_cliser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511112334158_cliser2.cs" />
+    <Compile Include="Migrations\201511112334158_cliser2.Designer.cs">
+      <DependentUpon>201511112334158_cliser2.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\ClienteServico.cs" />
     <Compile Include="Models\EmpresaClienteServico.cs" />
@@ -354,6 +367,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201511101456528_agenda.resx">
       <DependentUpon>201511101456528_agenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511101504415_agenda2.resx">
+      <DependentUpon>201511101504415_agenda2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511112322306_cliser.resx">
+      <DependentUpon>201511112322306_cliser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511112334158_cliser2.resx">
+      <DependentUpon>201511112334158_cliser2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

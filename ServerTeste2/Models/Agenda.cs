@@ -16,14 +16,12 @@ namespace ServerTeste2.Models
 
         public DateTime horarioAgenda { get; set; }
         
-        public int idCliente { get; set; }
-        public virtual Cliente cliente { get; set; }
-
         public int idEmpresaCliente { get; set; }
         public virtual EmpresaCliente empresaCliente { get; set; }
 
         //Horário 0 = Inalterado, 1 = Disponível, 2 = Indisponível
         public int infoHorario { get; set; }
+
         
     }
 }

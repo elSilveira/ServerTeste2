@@ -17,8 +17,8 @@ namespace ServerTeste2.Models
         public int idCliente { get; set; }
         public virtual Cliente cliente { get; set; }
 
-        public int idEmpresaServico { get; set; }
-        public virtual EmpresaServico empresaServico { get; set; }
+        public int idEmpresaCliente { get; set; }
+        public virtual EmpresaCliente empresaCliente { get; set; }
 
         // 0 - Cliente enviou
         // 1 - Sucesso
