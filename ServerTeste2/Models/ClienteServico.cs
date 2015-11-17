@@ -12,13 +12,13 @@ namespace ServerTeste2.Models
     public class ClienteServico
     {
         [Key]
-        public int idClienteServico{ get; set; }
-        
+        public int idClienteServico { get; set; }
+
         public int idCliente { get; set; }
         public virtual Cliente cliente { get; set; }
 
-        public int idEmpresaCliente { get; set; }
-        public virtual EmpresaCliente empresaCliente { get; set; }
+        public int idEmpresaClienteServico { get; set; }
+        public virtual EmpresaClienteServico empresaClienteServico{get; set;}
 
         // 0 - Cliente enviou
         // 1 - Sucesso
@@ -28,11 +28,11 @@ namespace ServerTeste2.Models
 
         public double valorServico { get; set; }
 
-        public DateTime dataServico { get; set; }
+        public Nullable<System.DateTime> dataServico { get; set; }
 
-        public DateTime dataAlternativa { get; set; }
+        public Nullable<System.DateTime> dataAlternativa { get; set; }
 
-        public DateTime dataResposta { get; set; }
+        public Nullable<System.DateTime>  dataResposta { get; set; }
     }
 }
 

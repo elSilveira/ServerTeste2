@@ -27,9 +27,10 @@ namespace ServerTeste2.Controllers
         [Authorize]
         public IEnumerable<string> Get()
         {
+            
             return new string[] { "value1", "value2" };
         }
-        
+
         [Route("api/addclient")]
         [HttpPost]
         public HttpResponseMessage CadastroCliente(JObject model)
@@ -40,21 +41,21 @@ namespace ServerTeste2.Controllers
                 //var data = js.Deserialize<Cliente>(dataCliente);
                 var cliente = new Cliente();
                 var usuario = new Usuario();
-                using (DBContext db = new DBContext())
-                {
-                    db.Database.CreateIfNotExists();
-                    dynamic json = model;
-                    cliente = json.Cliente.ToObject<Cliente>();
-                    db.Cliente.Add(cliente);
-                    db.SaveChanges();
-                    
-                    usuario.cliente = cliente;
-                    usuario.idCliente = cliente.idCliente;
-                    usuario.roleUsuario = "user";
-                    usuario.senhaUsuario = json.Password.ToString();
-                    db.Usuario.Add(usuario);
-                    db.SaveChanges();
-                }
+                DBContext db = new DBContext();
+
+                db.Database.CreateIfNotExists();
+                dynamic json = model;
+                cliente = json.Cliente.ToObject<Cliente>();
+                db.Cliente.Add(cliente);
+                db.SaveChanges();
+
+                usuario.cliente = cliente;
+                usuario.idCliente = cliente.idCliente;
+                usuario.roleUsuario = "user";
+                usuario.senhaUsuario = json.Password.ToString();
+                db.Usuario.Add(usuario);
+                db.SaveChanges();
+
 
                 var passRetorno = Simple.Encrypt(usuario.senhaUsuario);
 

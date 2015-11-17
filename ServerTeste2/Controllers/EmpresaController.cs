@@ -66,7 +66,7 @@ namespace ServerTeste2.Controllers
                                     especializacaoCliente = ec.especializacaoCliente,
                                     especializacao2Cliente = ec.especializacao2Cliente,
                                     especializacao3Cliente = ec.especializacao3Cliente,
-                                    idEmpresaCliente = ec.idEmpresaCliente
+                                    idEmpresaCliente = ecs.idEmpresaClienteServico
 
                                 };
                     IEnumerable<Profissional> cart = from ca in query.AsEnumerable()
